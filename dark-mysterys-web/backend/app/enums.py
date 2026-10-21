@@ -1,0 +1,141 @@
+"""Enumeraciones y constantes del dominio Dark Mystery's."""
+from __future__ import annotations
+
+import enum
+
+
+class Role(str, enum.Enum):
+    ADMINISTRADOR = "ADMINISTRADOR"
+    JEFE_DE_CASA = "JEFE_DE_CASA"
+    SUBJEFE_DE_CASA = "SUBJEFE_DE_CASA"
+    BANQUERO = "BANQUERO"
+    ESTUDIANTE = "ESTUDIANTE"
+
+
+class AccountStatus(str, enum.Enum):
+    PENDIENTE_DE_ACTIVACION = "PENDIENTE_DE_ACTIVACION"
+    ACTIVA = "ACTIVA"
+    CONGELADA = "CONGELADA"
+    DADA_DE_BAJA = "DADA_DE_BAJA"
+
+
+class HouseCode(str, enum.Enum):
+    CORVUS = "CORVUS"
+    AEGIS = "AEGIS"
+    UMBRA = "UMBRA"
+    NOCTURNA = "NOCTURNA"  # Casa Nocturna (gobierno, no participa en la Copa)
+
+
+class WalletTxType(str, enum.Enum):
+    DEPOSITO = "DEPOSITO"
+    TRANSFERENCIA = "TRANSFERENCIA"           # cabecera de transferencia (2 asientos)
+    COMPRA = "COMPRA"
+    REEMBOLSO = "REEMBOLSO"
+    PENALIZACION = "PENALIZACION"
+    AJUSTE_POSITIVO = "AJUSTE_POSITIVO"
+    AJUSTE_NEGATIVO = "AJUSTE_NEGATIVO"
+    REVERSION = "REVERSION"
+    RECOMPENSA_ACTIVIDAD = "RECOMPENSA_ACTIVIDAD"
+    CANCELACION = "CANCELACION"
+
+
+class TxStatus(str, enum.Enum):
+    PENDIENTE_APROBACION = "PENDIENTE_APROBACION"
+    COMPLETADA = "COMPLETADA"
+    RECHAZADA = "RECHAZADA"
+    REVERTIDA = "REVERTIDA"
+
+
+class PurchaseStatus(str, enum.Enum):
+    PENDIENTE_ACTIVACION = "PENDIENTE_ACTIVACION"
+    ACTIVADO = "ACTIVADO"
+    RECHAZADO = "RECHAZADO"
+    CANCELADO = "CANCELADO"
+    REEMBOLSADO = "REEMBOLSADO"
+
+
+class ActivationStatus(str, enum.Enum):
+    PENDIENTE = "PENDIENTE"
+    ACTIVADO = "ACTIVADO"
+    RECHAZADO = "RECHAZADO"
+    CANCELADO = "CANCELADO"
+    REEMBOLSADO = "REEMBOLSADO"
+
+
+class RefundStatus(str, enum.Enum):
+    SOLICITADO = "SOLICITADO"
+    APROBADO = "APROBADO"
+    RECHAZADO = "RECHAZADO"
+    PROCESADO = "PROCESADO"
+
+
+class EventType(str, enum.Enum):
+    DINAMICA = "DINAMICA"
+    RETO_GRUPAL = "RETO_GRUPAL"
+    RETO_INDIVIDUAL = "RETO_INDIVIDUAL"
+    FLASH_STICKER = "FLASH_STICKER"
+    ACTIVIDAD_ESPECIAL = "ACTIVIDAD_ESPECIAL"
+    DESEMPATE = "DESEMPATE"
+
+
+class EventStatus(str, enum.Enum):
+    BORRADOR = "BORRADOR"
+    CONFIRMADA = "CONFIRMADA"
+    RECTIFICADA = "RECTIFICADA"
+    CANCELADA = "CANCELADA"
+
+
+class PointLedgerType(str, enum.Enum):
+    DINAMICA_PODIO = "DINAMICA_PODIO"
+    PARTICIPACION = "PARTICIPACION"
+    RETO_GRUPAL = "RETO_GRUPAL"
+    RETO_INDIVIDUAL = "RETO_INDIVIDUAL"
+    COMPENSACION = "COMPENSACION"
+    PENALIZACION = "PENALIZACION"
+    CASA_NOCTURNA = "CASA_NOCTURNA"
+    RECOMPENSA_ORGANIZACION = "RECOMPENSA_ORGANIZACION"
+    AJUSTE = "AJUSTE"
+    RECTIFICACION = "RECTIFICACION"
+
+
+class SanctionResource(str, enum.Enum):
+    PUNTOS = "PUNTOS"
+    LUNARIAS = "LUNARIAS"
+
+
+class ComplaintStatus(str, enum.Enum):
+    ABIERTA = "ABIERTA"
+    EN_REVISION = "EN_REVISION"
+    RESUELTA = "RESUELTA"
+    RECHAZADA = "RECHAZADA"
+
+
+class ScheduleStatus(str, enum.Enum):
+    PROGRAMADA = "PROGRAMADA"
+    EN_CURSO = "EN_CURSO"
+    FINALIZADA = "FINALIZADA"
+    CANCELADA = "CANCELADA"
+    COMPENSADA = "COMPENSADA"
+
+
+class TokenPurpose(str, enum.Enum):
+    INVITACION = "INVITACION"
+    RESET_PASSWORD = "RESET_PASSWORD"
+    VERIFICAR_EMAIL = "VERIFICAR_EMAIL"
+
+
+class NotificationKind(str, enum.Enum):
+    SISTEMA = "SISTEMA"
+    BANCO = "BANCO"
+    TIENDA = "TIENDA"
+    COPA = "COPA"
+    RECLAMACION = "RECLAMACION"
+    ADMIN = "ADMIN"
+
+
+# --- Reglas de puntuación (constantes de referencia) ---
+PODIUM_POINTS = {1: 6000, 2: 5000, 3: 4000}
+PARTICIPATION_POINTS = 1500
+GROUP_CHALLENGE_POINTS = {1: 40000, 2: 30000, 3: 20000}
+INDIVIDUAL_CHALLENGE_POINTS = 16000
+CANCELLATION_COMPENSATION = 7500
